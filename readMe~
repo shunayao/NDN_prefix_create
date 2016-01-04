@@ -1,0 +1,31 @@
+3M/10M文件生成流程如下：
+-----------------------------
+1. ./n_compo_build ---> n.tmp
+2. ./deduplication ---> n.fib
+3. ./cut_file   ------> n_total_number.fib
+4. ./cut_file   ------> n_keep_number.tmp
+5. ./n_compo_build ---> (n+1).tmp
+6.  重复以上步骤直到生成所有不同组件的名字
+7. ./combine    ------> 1+2.fib
+8. ./combine    ------> 3+4.fib
+9.  重复以上combine，将各组件名字连接成一个文件，即：3M.fib或10M.fib，过程结束。
+-----------------------------
+
+2_compo_build(生成2个组件的名字:输入要生成的二级名字的数目即可,自动生成two.tmp)：
+./2_compo_build number
+
+3_compo_build(生成3个组件的名字：4,5,6```类似)：
+./3_compo_build (n-1)_keep_number.tmp n.tmp round
+
+deduplication(名字去重)的使用方法：
+./deduplication n.tmp n.tmp n.fib
+
+cut_file(文件大小切割)使用方法：
+./cut_file n_fib n_total_number.fib number  :
+./cut_file n_total_number.fib n_keep_number.tmp number
+
+各个文件的含义：
+one.tmp:由n_compo_build随机生成的n级前缀，可能有重复项。
+one.fib:由deduplication生成的无重复项的一级前缀。
+one_1248.fib:FIB表中一共有1248个一级前缀，由cut_file在去重后的项中切割1248个项得到。
+one_623.tmp:因为有625个一级前缀是leaf_prefix，即这剩下的623个一级fib用来构造二级fib。
