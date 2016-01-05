@@ -8,7 +8,7 @@
 6.  重复以上步骤直到生成所有不同组件的名字
 7. ./combine    ------> 1+2.fib
 8. ./combine    ------> 3+4.fib
-9.  重复以上combine，将各组件名字连接成一个文件，即：3M.fib或10M.fib，过程结束。
+9.  重复以上combine，将各组件名字连接成一个文件，即：3M.fib或10M.fib，所有过程结束。
 -----------------------------
 
 2_compo_build(生成2个组件的名字:输入要生成的二级名字的数目即可,自动生成two.tmp)：
@@ -29,3 +29,31 @@ one.tmp:由n_compo_build随机生成的n级前缀，可能有重复项。
 one.fib:由deduplication生成的无重复项的一级前缀。
 one_1248.fib:FIB表中一共有1248个一级前缀，由cut_file在去重后的项中切割1248个项得到。
 one_623.tmp:因为有625个一级前缀是leaf_prefix，即这剩下的623个一级fib用来构造二级fib。
+
+
+文件目录结构：
+_____________________________
+|-combine                   |
+|    |---combine.cc         |  
+|                           |
+|                           |
+|-component_build           |
+|    |---1_compo_build.cc   |
+|    |---2_compo_build.cc   |
+|    |---3_compo_build.cc   |
+|			    |
+|			    |
+|-deduplication		    |
+|    |---art.h		    |
+|    |---art1.c		    |
+|    |---deduplication.c    |
+|			    |
+|		            |
+|-processing_file 	    |
+|    |---cut_file.cc	    | 
+|    |---port_add.cc	    |
+|    |---perfect_trace.cc   |
+|    |---buidl_trace.cc     |
+|    |---build_delete.cc    |
+|___________________________|
+
