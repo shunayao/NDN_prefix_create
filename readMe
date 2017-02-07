@@ -12,17 +12,17 @@
 |    |---1_compo_build.cc   |
 |    |---2_compo_build.cc   |
 |    |---3_compo_build.cc   |
-|			    |
-|			    |
-|-deduplication		    |
-|    |---art.h		    |
-|    |---art1.c		    |
+|			                      |
+|			                      |
+|-deduplication		          |
+|    |---art.h		          |
+|    |---art1.c		          |
 |    |---deduplication.c    |
-|			    |
-|		            |
-|-processing_file 	    |
-|    |---cut_file.cc	    | 
-|    |---port_add.cc	    |
+|			                      |
+|		                        |
+|-processing_file 	        |
+|    |---cut_file.cc	      | 
+|    |---port_add.cc	      |
 |    |---perfect_trace.cc   |
 |    |---buidl_trace.cc     |
 |    |---build_delete.cc    |
